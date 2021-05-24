@@ -1,0 +1,24 @@
+<ion-content class="ion-padding">
+  <h5>Iniciar Sesion</h5>
+  <form [formGroup]="formulario">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Correo electronico</ion-label>
+        <ion-input type="email" formControlName="correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="ctn-btn-login">
+        <ion-button color="dark" (click)="iniciarSesion()">
+          Iniciar Sesion
+        </ion-button>
+      </div>
+      <div class="ctn-link-crear">
+        <p>¿No tienes una cuenta?</p>
+        <a routerLink="/registro">Crear cuenta</a>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

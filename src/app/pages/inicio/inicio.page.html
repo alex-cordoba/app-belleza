@@ -1,0 +1,46 @@
+<ion-content fullscreen="true">
+  <ion-img src="/assets/fondo-incio.JPG"></ion-img>
+
+  <ion-grid class="ion-margin-top">
+    <ion-row class="ion-text-center">
+      <ion-col size="6">
+        <ion-button color="primary" routerLink="/registro">
+          Registrarseeee
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="dark" routerLink="/login">
+          Iniciar Sesion
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button class="btn-face" (click)="facebookLogin()">
+          Iniciar sesion con Facebook
+        </ion-button>
+      </ion-col>
+      <ion-col size="12" style="margin-top: 15px;">
+        <a href="" class="ancla-trabaja-con-nostros">Trabaja con nosotros</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="shape"></div>
+
+  <!-- <ion-card *ngIf="usuario" >
+    <img [src]="usuario.picture.data.url">
+    <ion-card-header>
+      <ion-card-title>
+        {{usuario.name}}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{usuario.birthday}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{usuario.email}}
+      <ion-button (click)="logout()">Salir</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-button (click)="facebookLogin()"> Login </ion-button> -->
+
+</ion-content>
