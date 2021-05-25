@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "383879460168",
+    "project_id": "app-belleza",
+    "storage_bucket": "app-belleza.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383879460168:android:719e28b978eb23cc3d6f7d",
+        "android_client_info": {
+          "package_name": "com.belleza.casa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383879460168-s7c5g28cnjauasl9iedkpe5vfh6rf0mp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.belleza.casa",
+            "certificate_hash": "59bc9b183048ae962abfc7e0dd2842c327e0a5f4"
+          }
+        },
+        {
+          "client_id": "383879460168-396l0hcegiaemrlsighj3fp1emufqhi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsPj45ZIoFQK5Npqmjop7loA93TE_YmFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383879460168-396l0hcegiaemrlsighj3fp1emufqhi5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

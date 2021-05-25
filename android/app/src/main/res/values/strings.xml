@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">app-belleza</string>
+    <string name="title_activity_main">app-belleza</string>
+    <string name="package_name">com.belleza.casa</string>
+    <string name="custom_url_scheme">com.belleza.casa</string>
+    <string name="fb_app_id">115052780647882</string>
+    <string name="fb_app_name">bellezaEnCasa</string>
+</resources>

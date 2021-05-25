@@ -32,7 +32,7 @@
     "cordova-plugin-facebook-connect": "^2.3.0",
     "cordova-plugin-firebase-authentication": "^4.0.2",
     "cordova-support-android-plugin": "^1.0.2",
-    "firebase": "^8.6.1",
+    "firebase": "^8.6.2",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

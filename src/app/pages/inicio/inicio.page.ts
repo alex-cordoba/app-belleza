@@ -1,15 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { LoadingController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
-import { Plugins, registerWebPlugin } from '@capacitor/core';
-
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
-
-// import { FacebookLoginPlugin, FacebookLogin, FacebookLoginResponse } from '@capacitor-community/facebook-login';
-// import { isPlatform } from '@ionic/angular'
-// registerWebPlugin(FacebookLogin);
-
-
 
 @Component({
   selector: 'app-inicio',
@@ -20,15 +12,39 @@ export class InicioPage implements OnInit {
   tokenFb = null;
   usuario = null;
   // fbLogin: FacebookLoginPlugin;
+  private loading;
   constructor(
     private authService: AuthService,
+    private navCtrl: NavController,
+    private loadingCtrl: LoadingController,
     private http: HttpClient,
-    private fb: Facebook
   ) { 
     // this.setupFbLogin();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.showLoading();
+
+    this.authService.loggedIn.subscribe(status => {
+      this.loading.dismiss();
+      console.log(status);
+      
+      if (status) {
+        this.navCtrl.navigateForward("/home");
+      }
+    });
+  }
+  async login() {
+    await this.showLoading();
+    this.authService.PlataformaloginFB();
+  }
+
+  async showLoading() {
+    this.loading = await this.loadingCtrl.create({
+      message: "Authenticating..."
+    });
+
+    this.loading.present();
   }
   // async setupFbLogin() {
   //   if(isPlatform('desktop')) {

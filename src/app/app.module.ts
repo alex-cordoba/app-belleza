@@ -14,7 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 // Environment
 import { environment } from '../environments/environment';
-import { Facebook } from '@ionic-native/facebook';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 @NgModule({
   declarations: [AppComponent],
