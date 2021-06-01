@@ -32,6 +32,8 @@ export class VerificarTelPage implements OnInit {
   
   public enviarMensaje() {
     this.firebaseAuthentication.verifyPhoneNumber('+57'+this.telefono.toString(), 30000).then(verificacionId => {
+      console.log(verificacionId);
+      
       this.verificarCodigo(verificacionId);
     })
   }

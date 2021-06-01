@@ -14,6 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
 
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  tipoUsuario: boolean;
 
   constructor(
     private angularFireAuth: AngularFireAuth,
@@ -114,21 +115,41 @@ export class AuthService {
     return false;
   }
 
-  registrarUsuario(email: string, password: string, nombre: string, ciudad: string) {
+  public registrarUsuario(form) {
+    console.log(form);
+    
     return new Promise((resolve, reject) => {
-      this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(res => {
+      this.angularFireAuth.createUserWithEmailAndPassword(form.correo, form.password).then(res => {
         if (res) {
-          this.registrarDatosAdicionalesUsuario(nombre, ciudad, email);
+          if (this.tipoUsuario) {
+            console.log('entra a registrar usuario');
+            
+            this.registrarDatosAdicionalesUsuario(form);
+          } else {
+            console.log('entra a registrar prof');
+
+            this.registrarDatosAdicionalesProfesional(form);
+          }
         }
         resolve(res)
       }).catch(err => reject(err))
     })
   }
-  registrarDatosAdicionalesUsuario(nombre: string, ciudad: string, correo: string) {
-    this.db.collection('usuarios').doc(correo).set({
-      nombre: nombre,
-      ciudad: ciudad,
-      correo: correo
+  private registrarDatosAdicionalesUsuario(form) {
+    this.db.collection('usuarios').doc(form.correo).set({
+      nombre: form.nombre,
+      ciudad: form.ciudad,
+      correo: form.correo
+    })
+  }
+  private registrarDatosAdicionalesProfesional(form) {
+    this.db.collection('profesionales').doc(form.correo).set({
+      nombre: form.nombre,
+      ciudad: form.ciudad,
+      correo: form.correo,
+      fechaNacimiento: form.fechaNacimiento,
+      id: form.numeroIdentificacion,
+      tipoId: form.idIdentificacion
     })
   }
   login(email: string, password: string) {

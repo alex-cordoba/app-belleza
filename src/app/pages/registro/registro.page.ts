@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistroPage implements OnInit {
   formulario: FormGroup;
   passwordVerificado = false;
+  patternEmail = "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
@@ -23,18 +25,17 @@ export class RegistroPage implements OnInit {
       nombre: [null, [Validators.required]],
       ciudad: [null, [Validators.required]],
       correo: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      Verifpassword: [null, [Validators.required]]
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      Verifpassword: [null, [Validators.required, Validators.minLength(6)]],
+      fechaNacimiento: [null, [Validators.required]]
     })
   }
   public registrarUsuario() {
-    const email = this.formulario.get('correo').value;
-    const password = this.formulario.get('password').value;
-    const nombre = this.formulario.get('nombre').value;
-    const ciudad = this.formulario.get('ciudad').value;
-
-    if (this.passwordVerificado) {
-      this.authService.registrarUsuario(email, password, nombre, ciudad).then(auth => {
+    this.authService.tipoUsuario = true;
+    console.log(this.passwordVerificado, this.formulario.valid);
+    
+    if (this.passwordVerificado && this.formulario.valid) {
+      this.authService.registrarUsuario(this.formulario.value).then(auth => {
         //redirigir a dashboard
         console.log(auth);
       }).catch(err => console.log(err)
@@ -42,8 +43,6 @@ export class RegistroPage implements OnInit {
     }
   }
   public verificarPassword() {
-    console.log(this.formulario.get('Verifpassword').value);
-    console.log(this.formulario.get('password').value);
     if (this.formulario.get('Verifpassword').value === this.formulario.get('password').value) {
       this.passwordVerificado = true;
     }

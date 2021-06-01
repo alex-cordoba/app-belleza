@@ -9,8 +9,7 @@ android {
 
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
-    implementation project(':capacitor-community-facebook-login')
-    implementation "com.facebook.android:facebook-android-sdk:9.1.1"
+
     implementation "com.google.firebase:firebase-auth:20.0.+"
 }
 
